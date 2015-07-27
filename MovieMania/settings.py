@@ -79,9 +79,9 @@ WSGI_APPLICATION = 'MovieMania.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME' : 'moviemania_db',
-        'USER' : 'root',
-        'PASSWORD' : '',
+        'NAME': 'moviemania_db',
+        'USER': 'root',
+        'PASSWORD': '',
     }
 }
 
