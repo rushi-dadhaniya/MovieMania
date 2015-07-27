@@ -9,4 +9,4 @@ class Movie(models.Model):
     movie_mania_score = models.FloatField()
     duration = models.CharField(max_length=20)
     genre = models.CharField(max_length=200)
-    owner = models.ForeignKey('auth.User', related_name='movieapp')
+    owner = models.ForeignKey('auth.User', related_name='movies')

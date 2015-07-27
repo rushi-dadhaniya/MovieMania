@@ -12,7 +12,7 @@ class MovieSerializer(serializers.ModelSerializer):
 
 
 class UserSerializers(serializers.ModelSerializer):
-    movies = serializers.PrimaryKeyRelatedField(many=True, queryset=Movie.objects.all())
+    movies = serializers.HyperlinkedRelatedField(many=True, queryset=Movie.objects.all(), view_name='movie-detail')
 
     class Meta:
         model = User
