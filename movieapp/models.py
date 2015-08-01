@@ -2,7 +2,7 @@ from django.db import models
 
 
 class Genre(models.Model):
-    genre = models.CharField(max_length=100, default='')
+    genre = models.CharField(max_length=100, null=True)
 
     def __unicode__(self):
         return self.genre
@@ -18,7 +18,7 @@ class Movie(models.Model):
     popularity = models.FloatField()
     movie_mania_score = models.FloatField()
     duration = models.CharField(max_length=20)
-    genre = models.ManyToManyField('Genre', default='')
+    genre = models.ManyToManyField('Genre')
     owner = models.ForeignKey('auth.User', related_name='movies', default=1)
 
     def __unicode__(self):

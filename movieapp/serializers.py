@@ -1,14 +1,21 @@
 from rest_framework import serializers
 from django.contrib.auth.models import User
 from movieapp.models import Movie
+from movieapp.models import Genre
+
+
+class GenreSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = Genre
 
 
 class MovieSerializer(serializers.ModelSerializer):
+
     owner = serializers.ReadOnlyField(source='owner.username')
 
     class Meta:
         model = Movie
-        fields = ('url', 'name', 'director', 'popularity', 'movie_mania_score', 'duration', 'genre', 'owner')
 
 
 class UserSerializers(serializers.ModelSerializer):

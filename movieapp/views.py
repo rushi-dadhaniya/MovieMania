@@ -2,9 +2,16 @@ from django.contrib.auth.models import User
 from rest_framework import permissions
 from rest_framework import viewsets
 from movieapp.models import Movie
+from movieapp.models import Genre
 from movieapp.serializers import MovieSerializer
+from movieapp.serializers import GenreSerializer
 from movieapp.serializers import UserSerializers
 from movieapp.permissions import IsOwnerOrReadOnly
+
+
+class GenreViewSet(viewsets.ModelViewSet):
+    queryset = Genre.objects.all()
+    serializer_class = GenreSerializer
 
 
 class MovieViewSet(viewsets.ModelViewSet):
