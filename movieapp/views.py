@@ -1,9 +1,10 @@
 from django.contrib.auth.models import User
 from rest_framework import permissions
 from rest_framework import viewsets
+
 from movieapp.models import Movie
 from movieapp.models import Genre
-from movieapp.serializers import MovieSerializer, GenreSerializer, GenreAndMovieSerializer
+from movieapp.serializers import MovieSerializer, GenreAndMovieSerializer
 from movieapp.serializers import UserSerializers
 from movieapp.permissions import IsOwnerOrReadOnly
 

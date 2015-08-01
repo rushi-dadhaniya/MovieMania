@@ -2,7 +2,7 @@ from django.db import models
 
 
 class Genre(models.Model):
-    genre = models.CharField(max_length=100, null=True)
+    genre = models.CharField(max_length=100, null=True, unique=True)
 
     def __unicode__(self):
         return self.genre

@@ -4,18 +4,20 @@ from movieapp.models import Movie
 from movieapp.models import Genre
 
 
-class GenreSerializer(serializers.ModelSerializer):
+class GenreSerializer(serializers.HyperlinkedModelSerializer):
 
     class Meta:
         model = Genre
+        fields = ('genre', )
 
 
-class MovieSerializer(serializers.ModelSerializer):
+class MovieSerializer(serializers.HyperlinkedModelSerializer):
 
     owner = serializers.ReadOnlyField(source='owner.username')
 
     class Meta:
         model = Movie
+        field = ('genre', 'name')
 
 
 class GenreAndMovieSerializer(serializers.ModelSerializer):
