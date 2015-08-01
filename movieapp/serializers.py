@@ -18,6 +18,13 @@ class MovieSerializer(serializers.ModelSerializer):
         model = Movie
 
 
+class GenreAndMovieSerializer(serializers.ModelSerializer):
+    movies = MovieSerializer(many=True, read_only=True, source='movie_set')
+
+    class Meta:
+        model = Genre
+
+
 class UserSerializers(serializers.ModelSerializer):
     movies = serializers.HyperlinkedRelatedField(many=True, queryset=Movie.objects.all(), view_name='movie-detail')
 
