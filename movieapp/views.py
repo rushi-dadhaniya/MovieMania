@@ -12,6 +12,7 @@ from movieapp.permissions import IsOwnerOrReadOnly
 class GenreViewSet(viewsets.ModelViewSet):
     queryset = Genre.objects.all()
     serializer_class = GenreSerializer
+    permission_classes = (permissions.IsAuthenticatedOrReadOnly, )
 
 
 class MovieViewSet(viewsets.ModelViewSet):
